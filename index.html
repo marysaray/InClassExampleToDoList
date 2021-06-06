@@ -16,8 +16,8 @@
 
     <br>
 
-    <label for="date">Date:</label>
-    <input id="date" type="text">
+    <label for="main-date">Date:</label>
+    <input id="main-date" type="text">
 
     <br>
 
@@ -27,12 +27,16 @@
     <br>
 
     <input id="is-done" type="checkbox">
-    <label id="is-done" for="is-done">Done</label>
+    <label for="is-done">Done</label>
     <br>
 
-    <input type="button" id="add" value="Add Task"> 
+    <input type="button" id="add" value="Add Item"> 
+
+    <h3>Display Item:</h3>
+    <div id="incomplete-items"></div>
+    <div id="complete-items"></div>
 
     <script src="https://unpkg.com/js-datepicker"></script>  
-    <script src="js/main.js"></script>    
+    <script src="js/main.js"></script>
 </body>
 </html>
