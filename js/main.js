@@ -42,6 +42,7 @@ function displayItem(item) {
     var dueDate = new Date(item.dueDate.toString());
     itemDueDate.innerText = dueDate.toDateString();
     var itemDiv = document.createElement("div");
+    itemDiv.onclick = markAsComplete;
     itemDiv.classList.add("incomplete");
     if (item.isDone) {
         itemDiv.classList.add("completed");
@@ -57,6 +58,13 @@ function displayItem(item) {
         var incompleteItems = getInput("incomplete-items");
         incompleteItems.appendChild(itemDiv);
     }
+}
+function markAsComplete() {
+    console.log(this);
+    var itemDiv = this;
+    itemDiv.classList.add("completed");
+    var completedItems = getInput("complete-items");
+    completedItems.appendChild(itemDiv);
 }
 function getInput(id) {
     return document.getElementById(id);

@@ -4,7 +4,8 @@ mainDate.setMin(new Date()); // set today's date.
 // @ts-ignore -- no intellisense for js-datepicker.
 const dueDate = datepicker("#due-date");
 dueDate.setMin(new Date()); // set today's date.
-// create object for ToDoItem
+
+/* create fields for object:ToDoItem. */
 class ToDoItem{
     title:string;
     mainDate:Date;
@@ -67,41 +68,61 @@ function getToDoItem():ToDoItem{
  */
 function displayItem(item:ToDoItem):void{
     /* create element on web page to display. */
+
     // create <h3> on web page for title
     let itemText = document.createElement("h3");
     // display title in the h3 element created.
     itemText.innerText = item.title;
-    // create <p> element on web page for <"main-date">
+    // create <li> element on web page for <id="main-date">
     let itemMainDate = document.createElement("li");
+    // turns date object to string format.
     let mainDate = new Date(item.mainDate.toString());
     itemMainDate.innerText = mainDate.toDateString();
-    // create <p> element on web page for <"due-date">
+    // create <li> element on web page for <id="due-date">
     let itemDueDate = document.createElement("li");
+    // turns date object to string format.
     let dueDate = new Date(item.dueDate.toString());
     itemDueDate.innerText = dueDate.toDateString();
 
-    /* create div to store complete and incomplete items. */
+    /* create div to store completed and incomplete items. */
+
     let itemDiv = document.createElement("div");
-    // creates class for incomplete items
+    // add on-click event to entire element
+    itemDiv.onclick = markAsComplete;
+
+    /* creates <class="incomplete"> */
     itemDiv.classList.add("incomplete");
-    // creates class for complete items
+    /* creates <class"completed"> */
     if(item.isDone){ // box is checked
         itemDiv.classList.add("completed"); // add to class completed.
     }
-
+    // adds one element down from the parent element itemDiv.
     itemDiv.appendChild(itemText);
     itemDiv.appendChild(itemMainDate);
     itemDiv.appendChild(itemDueDate);
-
+    // decisions for newItem being added was checked complete or not. 
     if(item.isDone){
+        // <div> for <id="complete-items>
         let completeItems = getInput("complete-items");
         completeItems.appendChild(itemDiv);
     }
     else{
+        // <div> for <id="incomplete-items">
         let incompleteItems = getInput("incomplete-items");
         incompleteItems.appendChild(itemDiv);
-        
     }
+}
+/**
+ * This changes an incomplete item to be added to the completed item.
+ */
+function markAsComplete(){
+    console.log(this); // shows specific element being clicked.
+    let itemDiv = <HTMLElement>this; // cast for intellisense
+    itemDiv.classList.add("completed");
+    // get <div> element <class="complete-items"> 
+    let completedItems = getInput("complete-items");
+    // adds to <class="complete-items"> <div>
+    completedItems.appendChild(itemDiv);
 }
 /**
  * creates a shorter syntax for document.getElmemntById
