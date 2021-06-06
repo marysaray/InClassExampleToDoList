@@ -1,0 +1,23 @@
+/* any element with a <class="incomplete"> */
+.incomplete{
+    width: 20%;
+    box-sizing: border-box;
+    background-color: lightblue;
+    padding: .25em;
+    border-radius: .5em;
+    margin: 1em;
+}
+
+.incomplete h3{
+    margin: 0px;
+}
+
+.incomplete li{
+    margin: 0px;
+}
+
+/* any element with <class=completed> */
+.completed{
+    opacity: 35%;
+    background-color: lightgray;
+}
