@@ -1,0 +1,15 @@
+// tsconfig is a way to structure data.
+// JSON : JavaScript Object Notation.
+{
+    "compilerOptions": {
+        // remove all comments when compiled to JS.
+        "removeComments": true,
+        // compiles TS to JS file for each specific folder or file.
+        "outDir": "js",
+        // makes code work in older browser.
+        "target": "es5",
+        // auto changes JS after the first tsc command.
+        // tsc has to run at least once everytime a project is opened.
+        "watch": true
+    }
+}
