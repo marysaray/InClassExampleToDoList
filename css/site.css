@@ -6,6 +6,7 @@
     padding: .25em;
     border-radius: .5em;
     margin: 1em;
+    cursor: pointer;
 }
 
 .incomplete h3{
@@ -20,4 +21,15 @@
 .completed{
     opacity: 35%;
     background-color: lightgray;
+    text-decoration: line-through;
+}
+
+/* <div id="complete-items"> */
+#complete-items{
+    border: .2em solid lightgray;
+}
+
+/* <div id="incomplete-items"> */
+#incomplete-items{
+    border: .2em solid lightblue;
 }
