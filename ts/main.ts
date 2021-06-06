@@ -82,6 +82,9 @@ function displayItem(item:ToDoItem):void{
 
     /* create div to store complete and incomplete items. */
     let itemDiv = document.createElement("div");
+    // creates class for incomplete items
+    itemDiv.classList.add("incomplete");
+    // creates class for complete items
     if(item.isDone){ // box is checked
         itemDiv.classList.add("completed"); // add to class completed.
     }

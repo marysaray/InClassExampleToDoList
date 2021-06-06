@@ -42,6 +42,7 @@ function displayItem(item) {
     var dueDate = new Date(item.dueDate.toString());
     itemDueDate.innerText = dueDate.toDateString();
     var itemDiv = document.createElement("div");
+    itemDiv.classList.add("incomplete");
     if (item.isDone) {
         itemDiv.classList.add("completed");
     }
