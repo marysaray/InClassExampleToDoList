@@ -10,32 +10,25 @@
 </head>
 <body>
     <h1>In-Class Example: To Do List</h1>
-
-    <label for="title">Task:</label>
-    <input id="title" type="text">
-
-    <br>
-
-    <label for="main-date">Date:</label>
-    <input id="main-date" type="text">
-
-    <br>
-
-    <label for="due-date">Due Date:</label>
-    <input id="due-date" type="text">
-
-    <br>
-
-    <input id="is-done" type="checkbox">
-    <label for="is-done">Done</label>
-    <br>
-
-    <input type="button" id="add" value="Add Item"> 
-
-    <h3>Display Item:</h3>
-    <div id="incomplete-items"></div>
-    <div id="complete-items"></div>
-
+    <div id="information">
+        <label for="title">To Do:</label>
+        <input id="title" type="text">
+        <br>
+        <label for="main-date">Date:</label>
+        <input id="main-date" type="text">
+        <br>
+        <label for="due-date">Due Date:</label>
+        <input id="due-date" type="text">
+        <br>
+        <input id="is-done" type="checkbox">
+        <label for="is-done">Done</label>
+        <input type="button" id="add" value="Add Item"> 
+    </div>
+    <h3>TASKS:</h3>
+    <div id="all-items">
+        <div id="incomplete-items">Incomplete:</div>
+        <div id="complete-items">Complete:</div>
+    </div>
     <script src="https://unpkg.com/js-datepicker"></script>  
     <script src="js/main.js"></script>
 </body>
