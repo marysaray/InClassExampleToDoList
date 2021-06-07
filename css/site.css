@@ -1,6 +1,6 @@
 /* any element with a <class="incomplete"> */
 .incomplete{
-    width: 20%;
+    width: 25%;
     box-sizing: border-box;
     background-color: lightblue;
     padding: .25em;
@@ -8,28 +8,63 @@
     margin: 1em;
     cursor: pointer;
 }
-
 .incomplete h3{
     margin: 0px;
 }
-
 .incomplete li{
     margin: 0px;
 }
-
 /* any element with <class=completed> */
 .completed{
     opacity: 35%;
     background-color: lightgray;
     text-decoration: line-through;
 }
-
 /* <div id="complete-items"> */
 #complete-items{
     border: .2em solid lightgray;
+    width: 50%;
+    box-sizing: border-box;
 }
-
 /* <div id="incomplete-items"> */
 #incomplete-items{
     border: .2em solid lightblue;
+    width: 50%;
+    box-sizing: border-box;
+}
+/* style both div containers. */
+#complete-items,
+#incomplete-items{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+#all-items{
+    display: flex;
+}
+/* center input display */
+#information{
+    text-align: right;
+}
+/* format lables evenly */
+label{
+    display: inline-block;
+}
+/* spaces between text boxes. */
+input[type=text]{
+    margin-bottom: 1em;
+    padding: .3em;
+}
+/* centers heading of web page. */
+h1{
+    text-align: center;
+}
+/* background and text color */
+body{
+    background-color: whitesmoke;
+    color: blueviolet;
+    margin-left: 5%;
+    margin-right: 5%;
 }
