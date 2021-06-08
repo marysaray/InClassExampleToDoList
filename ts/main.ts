@@ -19,6 +19,15 @@ window.onload = function(){
     // button can be executed
     let addItem = document.getElementById("add");
     addItem.onclick = main;
+    // load saved item
+    loadSavedItem();
+}
+/**
+ * This function will keep saved Items on the web page.
+ */
+function loadSavedItem(){
+    let item = getItems(); // read from storage
+    displayItem(item); // display on website
 }
 /**
  * When the Add Item button is clicked it will get all data from the getToDoItem method
@@ -28,6 +37,7 @@ function main(){
     if(isValid()){
         let item = getToDoItem();
         displayItem(item);
+        saveItem(item);
     }
 }
 /**
@@ -36,6 +46,29 @@ function main(){
  */
 function isValid():boolean{
     return true;
+}
+/* Create a const variable to reduce redundancy: intellisense. */
+const objectKey = "itemsToDo";
+/**
+ * This function will store ToDoItems in local storage.
+ */
+function saveItem(item:ToDoItem):void{
+    // convert ToDoItem object into string with JSON format.
+    let itemString = JSON.stringify(item);
+    // save item into local storage
+    localStorage.setItem(objectKey, itemString);
+}
+/**
+ * This function will get the ToDoItems from the local storage.
+ * @returns ToDo items or null if none is found.
+ */
+function getItems():ToDoItem{
+    // get item in local storage
+    let itemString = localStorage.getItem(objectKey);
+    // get item from string
+    let item:ToDoItem = JSON.parse(itemString)
+    // return item or null?
+    return item;
 }
 /**
  * This function get the data from the user's input 

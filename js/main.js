@@ -10,15 +10,31 @@ var ToDoItem = (function () {
 window.onload = function () {
     var addItem = document.getElementById("add");
     addItem.onclick = main;
+    loadSavedItem();
 };
+function loadSavedItem() {
+    var item = getItems();
+    displayItem(item);
+}
 function main() {
     if (isValid()) {
         var item = getToDoItem();
         displayItem(item);
+        saveItem(item);
     }
 }
 function isValid() {
     return true;
+}
+var objectKey = "itemsToDo";
+function saveItem(item) {
+    var itemString = JSON.stringify(item);
+    localStorage.setItem(objectKey, itemString);
+}
+function getItems() {
+    var itemString = localStorage.getItem(objectKey);
+    var item = JSON.parse(itemString);
+    return item;
 }
 function getToDoItem() {
     var newItem = new ToDoItem();
